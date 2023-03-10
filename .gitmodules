@@ -1,0 +1,3 @@
+[submodule "xcode_embedded_swift_atomics/third_party/swift-atomics"]
+	path = xcode_embedded_swift_atomics/third_party/swift-atomics
+	url = https://github.com/apple/swift-atomics
