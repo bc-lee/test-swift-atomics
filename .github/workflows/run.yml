@@ -1,0 +1,54 @@
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: macos-12
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [xcode, xcode_embedded_swift_atomics, tuist]
+        scheme: [debug, release]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 13.4
+      - name: Prepare tuist
+        if: matrix.target == 'tuist'
+        run: |
+          if [[ -d "$RUNNER_TEMP" ]]; then
+            export TMPDIR="$RUNNER_TEMP"
+          fi
+          tmpdir=$(mktemp -d)
+          pushd "$tmpdir"
+          curl -OL https://github.com/tuist/tuist/releases/download/3.16.0/tuistenv.zip
+          unzip tuistenv.zip
+          popd
+          pushd tuist
+          "$tmpdir/tuistenv" fetch
+          "$tmpdir/tuistenv" generate -n
+          popd
+          rm -rf "$tmpdir"
+      - name: Build
+        run: |
+          if [[ "${{ matrix.scheme }}" = "debug" ]]; then
+            scheme="Debug"
+          else
+            scheme="Release"
+          fi
+          
+          cd "${{ matrix.target }}"
+          if [[ "${{ matrix.target }}" = "tuist" ]]; then
+            project_or_workspace="-workspace MyFramework.xcworkspace"
+          else
+            project_or_workspace="-project MyFramework.xcodeproj"
+          fi
+          
+          xcodebuild ARCHS=x86_64 ${project_or_workspace} \
+            -scheme MyFramework -configuration "$scheme" \
+            -destination 'platform=iOS Simulator,name=iPhone 8' \
+            test
