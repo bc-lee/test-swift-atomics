@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B66787629BC286E00D2E7FB /* _AtomicsShims.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74394229BBE44100F5AD47 /* _AtomicsShims.framework */; };
+		3B66787729BC286E00D2E7FB /* _AtomicsShims.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74394229BBE44100F5AD47 /* _AtomicsShims.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B74391629BBE3AD00F5AD47 /* AtomicInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74390F29BBE3AD00F5AD47 /* AtomicInteger.swift */; };
 		3B74391729BBE3AD00F5AD47 /* DoubleWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74391029BBE3AD00F5AD47 /* DoubleWord.swift */; };
 		3B74391829BBE3AD00F5AD47 /* AtomicMemoryOrderings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74391129BBE3AD00F5AD47 /* AtomicMemoryOrderings.swift */; };
@@ -31,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B66787829BC286E00D2E7FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CCB3CB9F5E039D9170D7C7C281CBD6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B74394129BBE44100F5AD47;
+			remoteInfo = _AtomicsShims;
+		};
 		3B74393529BBE40C00F5AD47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1CCB3CB9F5E039D9170D7C7C281CBD6C /* Project object */;
@@ -61,6 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3B66787729BC286E00D2E7FB /* _AtomicsShims.framework in Embed Frameworks */,
 				3B74393429BBE40C00F5AD47 /* Atomics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -130,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B66787629BC286E00D2E7FB /* _AtomicsShims.framework in Frameworks */,
 				3B74393329BBE40C00F5AD47 /* Atomics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +318,7 @@
 			);
 			dependencies = (
 				3B74393629BBE40C00F5AD47 /* PBXTargetDependency */,
+				3B66787929BC286E00D2E7FB /* PBXTargetDependency */,
 			);
 			name = MyFramework;
 			packageProductDependencies = (
@@ -458,6 +470,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3B66787929BC286E00D2E7FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B74394129BBE44100F5AD47 /* _AtomicsShims */;
+			targetProxy = 3B66787829BC286E00D2E7FB /* PBXContainerItemProxy */;
+		};
 		3B74393629BBE40C00F5AD47 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3B7438E929BBE34E00F5AD47 /* Atomics */;
