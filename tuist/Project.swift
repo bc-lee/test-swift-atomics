@@ -21,13 +21,7 @@ let project = Project(
             ],
             dependencies: [
                 .external(name: "Atomics")
-            ],
-            settings: Settings.settings(
-                configurations: [
-                    .debug(name: "Debug", xcconfig: Path("base.xcconfig")),
-                    .release(name: "Release", xcconfig: Path("base.xcconfig")),
-                ]
-            )
+            ]
         ),
         Target(
             name: "MyFrameworkTests",
