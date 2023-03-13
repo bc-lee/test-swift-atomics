@@ -36,6 +36,6 @@ let project = Project(
             dependencies: [
                 .target(name: "MyFramework")
             ]
-        )
+        ),
     ]
 )
