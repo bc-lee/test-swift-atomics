@@ -28,6 +28,7 @@ let project = Project(
             platform: .iOS,
             product: .unitTests,
             bundleId: "com.example.MyFrameworkTests",
+            deploymentTarget: deploymentTarget,
             infoPlist: .default,
             sources: [
                 "MyFrameworkTests/MyFrameworkTests.swift"
